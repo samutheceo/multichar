@@ -1,4 +1,4 @@
---[[ fx_version "cerulean"
+fx_version "cerulean"
 
 author '"samu'
 version '1.0.0'
@@ -17,4 +17,4 @@ server_script "server/*"
 files {
   'web/build/index.html',
   'web/build/**/*'
-} ]]
+}
