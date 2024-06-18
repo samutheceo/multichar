@@ -9,6 +9,7 @@ import { FaUsers } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { useNuiEvent } from '../../hooks/useNuiEvent';
 import { MulticharProps } from "../../typings/multichar";
+import { fetchNui } from "../../utils/fetchNui";
 
 const Multichar: React.FC = () => {
     const [activeUserIndex, setActiveUserIndex] = React.useState<number | null>(0);
@@ -25,7 +26,7 @@ const Multichar: React.FC = () => {
         },
        ]
     });
-    const [visible, setVisible] = React.useState(false);
+    const [visible, setVisible] = React.useState(true);
 
     useNuiEvent<MulticharProps>('Multichar', (data) => {
         setData(data);
@@ -109,8 +110,14 @@ const Multichar: React.FC = () => {
                                         </span>                           
                                     </Squircle>
                                     </div>
+                                    <Squircle onClick={() => fetchNui('gioca')} className='w-full py-2 px-4 flex items-center justify-center text-center bg-rose-500/20 text-rose-500' asChild cornerRadius={15} cornerSmoothing={0.6}>
+                                        <span>
+                                            Gioca
+                                        </span>
+                                    </Squircle>
                                 </span>
                             )}
+
                         </Squircle>
                     </span>
                     <span className="w-1/2 h-full flex flex-col pl-32 items-center justify-center">

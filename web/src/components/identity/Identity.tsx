@@ -72,12 +72,12 @@ const Identity: React.FC = () => {
                     <span className="w-fit h-fit flex flex-col gap-y-8 items-center justify-center">
                         <div className='flex flex-col items-center justify-center gap-y-6'>
                             <span className='flex flex-col items-center justify-center'>
-                                <div className="w-fit h-fit rounded-full relative group mb-3">
+                                <div className="w-[120px] h-[120px] overflow-hidden rounded-full relative group mb-3">
                                     <img
                                         alt=""
                                         width={120}
                                         height={120}
-                                        className="rounded-full cursor-pointer hover:opacity-80 transition-all duration-200 ease-linear"
+                                        className="rounded-full object-cover cursor-pointer hover:opacity-80 transition-all duration-200 ease-linear"
                                         src={currentPfp}
                                         onClick={editPfp}
                                     />
