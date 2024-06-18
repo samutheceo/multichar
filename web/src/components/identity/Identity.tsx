@@ -13,8 +13,13 @@ const Identity: React.FC = () => {
     const [gender, setGender] = useState('Maschio');
     const [dropdownOpen, setDropdownOpen] = useState(true);
     const [PopupPfp, setPopupPfp] = useState(false);
-    const [currentPfp, setCurrentPfp] = useState('https://media.discordapp.net/attachments/1063113222531596398/1250960895194955886/samu.gif?ex=666d805f&is=666c2edf&hm=39c6371d22e60b891dc69b08a017a20aae94eaee58d230b821fc61563afc9f5d&=');
+    const [currentPfp, setCurrentPfp] = useState('https://media.discordapp.net/attachments/1063113222531596398/1250960895194955886/samu.gif?ex=667174df&is=6670235f&hm=ab7c55407827e0888deec30ebcc9bf6965924d68aae71d939af0a2c3f6277bb0&=');
     const [newPfpUrl, setNewPfpUrl] = useState('');
+
+    const [nome, setNome] = useState('');
+    const [cognome, setCognome] = useState('');
+    const [dataDiNascita, setDataDiNascita] = useState('');
+    const [height, setHeight] = useState('170');
 
     const [data, setData] = React.useState<IdentityProps>({
         button_text: 'Crea Personaggio',
@@ -38,8 +43,6 @@ const Identity: React.FC = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
-    const [height, setHeight] = useState('170');
-
     const incrementHeight = () => {
         const currentHeight = parseInt(height) || 140;
         if (currentHeight < 200) {
@@ -56,12 +59,23 @@ const Identity: React.FC = () => {
 
     const confirmNewPfp = () => {
         setCurrentPfp(newPfpUrl);
-        setPopupPfp(false)
+        setPopupPfp(false);
     };
 
     const editPfp = () => {
-        setPopupPfp(true)
-    }
+        setPopupPfp(true);
+    };
+
+    const createPersonaggio = () => {
+        fetchNui('creaPersonaggio', {
+            nome,
+            cognome,
+            dataDiNascita,
+            gender,
+            height,
+            currentPfp,
+        }).catch();
+    };
 
     return (
     <>
@@ -86,11 +100,15 @@ const Identity: React.FC = () => {
                                     type="text"
                                     className="bg-transparent px-2 outline-none caret-rose-400/80 text-white placeholder:text-zinc-50 text-lg flex items-center justify-center text-center"
                                     placeholder="Nome"
+                                    value={nome}
+                                    onChange={(e) => setNome(e.target.value)}
                                 />
                                 <input
                                     type="text"
                                     className="bg-transparent px-2 outline-none caret-rose-400/80 text-zinc-200 placeholder:text-zinc-200/90 text-md flex items-center justify-center text-center"
                                     placeholder="Cognome"
+                                    value={cognome}
+                                    onChange={(e) => setCognome(e.target.value)}
                                 />
                             </span>
                             <div className='w-fit h-fit flex flex-col gap-y-2'>
@@ -103,7 +121,13 @@ const Identity: React.FC = () => {
                                                 </Squircle>
                                                 <span className='flex flex-col h-full justify-between text-left'>
                                                     <h1 className='text-sm text-white font-semibold'>Data di nascita</h1>
-                                                    <input type='text' className='text-zinc-400 text-xs bg-transparent w-56 outline-none caret-red-400' placeholder='17 Agosto, 2000'/>
+                                                    <input
+                                                        type='text'
+                                                        className='text-zinc-400 text-xs bg-transparent w-56 outline-none caret-red-400'
+                                                        placeholder='17 Agosto, 2000'
+                                                        value={dataDiNascita}
+                                                        onChange={(e) => setDataDiNascita(e.target.value)}
+                                                    />
                                                 </span>
                                             </span>
                                         </div>
@@ -173,7 +197,7 @@ const Identity: React.FC = () => {
                             </div>
                         </div>
                         <div className='w-full h-fit flex items-center justfiy-center'>
-                            <Squircle onClick={() => fetchNui('creaPersonaggio')}  asChild className='w-full h-fit p-2 flex items-center justify-center text-rose-500 bg-rose-500/20 hover:opacity-80 transition-all duration-200 ease-linear cursor-pointer' cornerRadius={15} cornerSmoothing={0.6}>
+                            <Squircle onClick={() => createPersonaggio()}  asChild className='w-full h-fit p-2 flex items-center justify-center text-rose-500 bg-rose-500/20 hover:opacity-80 transition-all duration-200 ease-linear cursor-pointer' cornerRadius={15} cornerSmoothing={0.6}>
                                 { data.button_text &&
                                     <span>{data.button_text}</span>
                                 }
