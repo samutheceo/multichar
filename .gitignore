@@ -1,1 +1,9 @@
-node_modules/ 
+
+web/*
+
+
+!web/build/
+!web/public/
+
+web/build/**
+web/public/**
