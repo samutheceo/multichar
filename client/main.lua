@@ -17,13 +17,17 @@ RegisterCommand('multichar', function()
         data = {
             users = {
                 {
-                    nome = 'samu',
-                    cognome =  'Tatical',
-                    bday = '17 Agosto, 2000',
+                    firstname = 'samu',
+                    lastname =  'Tatical',
+                    dateofbirth = '17 Agosto, 2000',
                     thumbnail  =  'https://media.discordapp.net/attachments/1063113222531596398/1250960895194955886/samu.gif?ex=667174df&is=6670235f&hm=ab7c55407827e0888deec30ebcc9bf6965924d68aae71d939af0a2c3f6277bb0&=',
-                    lavoro = 'Disoccupato',
-                    bank_account = 100,
-                    wallet = 0
+                    job = 'Disoccupato',
+                    accounts = {
+                        {
+                            "bank" = 100,
+                            "money" = 0
+                        }
+                    }
                 },
             }
         }
