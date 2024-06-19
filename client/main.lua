@@ -23,10 +23,8 @@ RegisterCommand('multichar', function()
                     thumbnail  =  'https://media.discordapp.net/attachments/1063113222531596398/1250960895194955886/samu.gif?ex=667174df&is=6670235f&hm=ab7c55407827e0888deec30ebcc9bf6965924d68aae71d939af0a2c3f6277bb0&=',
                     job = 'Disoccupato',
                     accounts = {
-                        {
-                            "bank" = 100,
-                            "money" = 0
-                        }
+                        bank = 100,
+                        money = 0
                     }
                 },
             }
