@@ -11,8 +11,13 @@ games {
 
 ui_page 'web/build/index.html'
 
-client_script "client/*"
-server_script "server/*"
+client_script {
+  'client/*'
+}
+server_script {
+  '@oxmysql/lib/MySQL.lua',
+  'server/*'
+}
 
 files {
   'web/build/index.html',
