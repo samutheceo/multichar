@@ -1,6 +1,2 @@
-# Designed by "samu
-## Developed by "samu, ShadowIMn & Eragon.
-
-
-
-## TATICAL GAMEMODE PREMIUM VERSION
+# Developed, Designed and Arranged by "samu,
+# on esx_identity & esx_multicharacter.
