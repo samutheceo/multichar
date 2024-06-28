@@ -6,5 +6,5 @@ ALTER TABLE `users`
 	ADD COLUMN `dateofbirth` VARCHAR(10) NULL DEFAULT NULL,
 	ADD COLUMN `sex` VARCHAR(1) NULL DEFAULT NULL,
 	ADD COLUMN `height` INT NULL DEFAULT NULL,
-  ADD COLUMN `thumbnail` VARCHAR(255) NULL DEFAULT 'https://i.imgur.com/HWvFy32.png'
+   ADD COLUMN `thumbnail` VARCHAR(255) NULL DEFAULT 'https://i.imgur.com/HWvFy32.png'
 ;

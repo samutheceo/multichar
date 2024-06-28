@@ -24,6 +24,10 @@ AddEventHandler('esx:loadingScreenOff', function()
     loadingScreenFinished = true
 end)
 
+RegisterCommand('apriId', function()
+    EnableGui(true)
+end)
+
 RegisterNUICallback('ready', function(data, cb)
     ready = true
     cb(1)
@@ -40,11 +44,15 @@ if not Config.UseDeferrals then
             ClearTimecycleModifier()
         end
 
-        SendNUIMessage({
-            action = "Identity",
-            button_text='Crea Personaggio',
-            enable = state
-        })
+        if state == true then
+            SendNUIMessage({
+                action = "Identity",
+            })
+        elseif state == false then 
+            SendNUIMessage({
+                action = "IdentityHide",
+            })
+        end
     end
 
     RegisterNetEvent('esx_identity:showRegisterIdentity', function()
