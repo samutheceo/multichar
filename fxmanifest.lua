@@ -11,12 +11,19 @@ games {
 
 ui_page 'web/build/index.html'
 
-client_script {
-  'client/*'
+client_scripts {
+	'@es_extended/locale.lua',
+	'locales/*.lua',
+	'config.lua',
+	'client/main.lua'
 }
-server_script {
-  '@oxmysql/lib/MySQL.lua',
-  'server/*'
+
+server_scripts {
+	'@es_extended/locale.lua',
+	'@oxmysql/lib/MySQL.lua',
+	'locales/*.lua',
+	'config.lua',
+	'server/main.lua'
 }
 
 files {
@@ -24,4 +31,6 @@ files {
   'web/build/**/*'
 }
 
-dependency 'es_extended'
+shared_script '@es_extended/imports.lua'
+
+dependency('es_extended')
